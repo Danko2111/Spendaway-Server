@@ -5,9 +5,9 @@
 exports.up = function (knex) {
   return knex.schema.createTable("user", (table) => {
     table.uuid("user_id").primary();
-    table.string("fname").notNullable();
-    table.string("lname").notNullable();
-    table.double("balance").notNullable();
+    table.string("username").notNullable();
+    table.string("password").notNullable();
+    table.double("balance").notNullable().defaultTo(0);
   });
 };
 
