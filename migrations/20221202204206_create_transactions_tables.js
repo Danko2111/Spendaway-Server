@@ -7,8 +7,8 @@ exports.up = function (knex) {
     table.uuid("transaction_id").primary();
     table.string("name").notNullable();
     table.string("category").notNullable();
-    table.double("amount").notNullable();
-    table.date("date").notNullable();
+    table.float("amount").notNullable();
+    table.bigInteger("date").notNullable();
     table
       .uuid("user_id")
       .notNullable()

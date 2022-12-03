@@ -5,7 +5,7 @@ const { v4: uuid } = require("uuid");
 
 exports.addNewUser = (req, res) => {
   // validating incomming req.body data
-  if (!req.body.username || !req.body.password) {
+  if (!req.body.username || !req.body.pass) {
     res
       .status(400)
       .send(
