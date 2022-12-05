@@ -18,6 +18,7 @@ exports.checkUser = (req, res) => {
     knex("user")
       .where("username", username)
       .then((data) => {
+        console.log(data[0]);
         const { user_id, username, password, balance } = data[0];
         //if username exists compare user pass to incoming req.body.pass
         let hash = password;
