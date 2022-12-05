@@ -8,7 +8,7 @@ exports.checkUser = (req, res) => {
   //req.body validation
   if (!req.body.username || !req.body.pass) {
     res
-      .status(400)
+      .status(401)
       .send(
         "Please make sure the incoming body contains ONLY username and password values"
       );
@@ -20,8 +20,8 @@ exports.checkUser = (req, res) => {
       .then((data) => {
         const { user_id, username, password, balance } = data[0];
         //if username exists compare user pass to incoming req.body.pass
-        let hash = data.password;
-        if (bcrypt.compareSync(pass, password)) {
+        let hash = password;
+        if (bcrypt.compareSync(pass, hash)) {
           //sign a jwt token with a payload and a signature
           let token = jwt.sign(
             {
@@ -33,11 +33,11 @@ exports.checkUser = (req, res) => {
           );
           res.status(200).json({ token: token });
         } else {
-          res.status(403).send({ token: null });
+          res.status(403).send({ message: "Incorrect Passsword", token: null });
         }
       })
       .catch((err) => {
-        res.status(400).send(`Invalid username ${err}`);
+        res.status(400).send(`Error fetching user from DB ${err}`);
       });
   }
 };
