@@ -18,23 +18,28 @@ exports.checkUser = (req, res) => {
     knex("user")
       .where("username", username)
       .then((data) => {
-        console.log(data[0]);
-        const { user_id, username, password, balance } = data[0];
-        //if username exists compare user pass to incoming req.body.pass
-        let hash = password;
-        if (bcrypt.compareSync(pass, hash)) {
-          //sign a jwt token with a payload and a signature
-          let token = jwt.sign(
-            {
-              user_id: user_id,
-              username: username,
-              balance: balance,
-            },
-            JWT_SECRET
-          );
-          res.status(200).json({ token: token });
+        if (data[0]?.username !== username) {
+          res.status(202).send("user not found");
         } else {
-          res.status(403).send({ message: "Incorrect Passsword", token: null });
+          const { user_id, username, password, balance } = data[0];
+          //if username exists compare user pass to incoming req.body.pass
+          let hash = password;
+          if (bcrypt.compareSync(pass, hash)) {
+            //sign a jwt token with a payload and a signature
+            let token = jwt.sign(
+              {
+                user_id: user_id,
+                username: username,
+                balance: balance,
+              },
+              JWT_SECRET
+            );
+            res.status(200).json({ token: token });
+          } else {
+            res
+              .status(203)
+              .send({ message: "Incorrect Passsword", token: null });
+          }
         }
       })
       .catch((err) => {
