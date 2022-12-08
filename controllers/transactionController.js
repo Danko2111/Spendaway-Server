@@ -2,8 +2,8 @@ const knex = require("knex")(require("../knexfile"));
 
 exports.getAllTransactions = (req, res) => {
   knex("transaction")
-    .where("user_id", req.decoded.user_id)
-    .then(({ data }) => {
+    .where("user_id", req.user.user_id)
+    .then((data) => {
       res.status(200).json(data);
     })
     .catch((err) => {

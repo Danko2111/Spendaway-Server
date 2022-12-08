@@ -29,8 +29,6 @@ exports.checkUser = (req, res) => {
             let token = jwt.sign(
               {
                 user_id: user_id,
-                username: username,
-                balance: balance,
               },
               JWT_SECRET
             );

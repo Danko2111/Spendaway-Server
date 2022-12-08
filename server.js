@@ -5,7 +5,8 @@ require("dotenv").config(); //load .env variables
 const PORT = process.env.PORT || 9000;
 const authorize = require("./utils/authorize");
 //const userRoutes = require("./routes/userRoute");
-const transactionRoutes = require("./routes/transactionRoute");
+const transactionRoute = require("./routes/transactionRoute");
+const userRoute = require("./routes/userRoute");
 const signupRoute = require("./routes/signupRoute");
 const loginRoute = require("./routes/loginRoute");
 
@@ -22,7 +23,8 @@ app.use("/login", loginRoute);
 // protected routes
 
 //app.use("/users", authorize, userRoutes);
-app.use("/transactions", authorize, transactionRoutes);
+app.use("/transactions", authorize, transactionRoute);
+app.use("/users", authorize, userRoute);
 
 app.listen(PORT, () => {
   console.log(`🚀 Server running at http://localhost:${PORT}`);
