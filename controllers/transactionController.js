@@ -1,13 +1,14 @@
 const knex = require("knex")(require("../knexfile"));
 
-exports.getAllTransactions = (req, res) => {
+exports.getMonthTransactions = (req, res) => {
   knex("transaction")
     .where("user_id", req.user.user_id)
+    .andWhereBetween("date", [req.query.startDate, req.query.endDate])
     .then((data) => {
       res.status(200).json(data);
     })
     .catch((err) => {
-      res.statsu(400).send(err);
+      res.status(400).send(err);
     });
 };
 
