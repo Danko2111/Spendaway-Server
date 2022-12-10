@@ -4,6 +4,7 @@ exports.getMonthTransactions = (req, res) => {
   knex("transaction")
     .where("user_id", req.user.user_id)
     .andWhereBetween("date", [req.query.startDate, req.query.endDate])
+    .orderBy("date")
     .then((data) => {
       res.status(200).json(data);
     })
