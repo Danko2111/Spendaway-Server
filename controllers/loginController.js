@@ -21,7 +21,7 @@ exports.checkUser = (req, res) => {
         if (data[0]?.username !== username) {
           res.status(202).send("user not found");
         } else {
-          const { user_id, username, password, balance } = data[0];
+          const { user_id, password } = data[0];
           //if username exists compare user pass to incoming req.body.pass
           let hash = password;
           if (bcrypt.compareSync(pass, hash)) {
