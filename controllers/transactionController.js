@@ -4,7 +4,7 @@ exports.getMonthTransactions = (req, res) => {
   knex("transaction")
     .where("user_id", req.user.user_id)
     .andWhereBetween("date", [req.query.startDate, req.query.endDate])
-    .orderBy("date")
+    .orderBy("date", "desc")
     .then((data) => {
       res.status(200).json(data);
     })
@@ -14,8 +14,9 @@ exports.getMonthTransactions = (req, res) => {
 };
 
 exports.addNewTransaction = (req, res) => {
+  const newTransaction = { ...req.body, user_id: req.user.user_id };
   knex("transaction")
-    .insert(req.body)
+    .insert(newTransaction)
     .then((data) => {
       res.status(200).send(`New transaction added`);
     })
