@@ -13,8 +13,12 @@ exports.getUser = (req, res) => {
 
 exports.updateBalance = (req, res) => {
   knex("user")
-    .where(req.user.user_id)
+    .where("user_id", req.user.user_id)
     .update({ balance: req.body.balance })
-    .then(() => res.status(200))
-    .catch((err) => res.status(500).send(err));
+    .then((data) => {
+      res.status(200).send(`Success ${data}`);
+    })
+    .catch((err) => {
+      res.status(500);
+    });
 };
