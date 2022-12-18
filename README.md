@@ -11,11 +11,9 @@ Here is the React front end for this project
 
 [Spendaway - React Front-End](https://github.com/Danko2111/Spendaway)
 
-
 ## Environment Variables
 
 To run this project, you will need to add the following environment variables to your .env file
-
 
 ### DB and JWT Secret
 
@@ -53,27 +51,36 @@ const knex = require('knex')({
 });
 ```
 
-3. Finally run both of these commands: 
+3. Finally run both of these commands:
+
 ```bash
 npm run migrate
 ```
-and 
+
+and
+
 ```bash
 npm run seed
 ```
+
 This will create all the needed tables within the DB and seed the default data into those tables.
 
 ## Run Locally
+
 1. Once you have cloned this repository make sure to run `npm i` to install any dependancies you might be missing.
 2. Make sure you download [Spendaway Front-end](https://github.com/Danko2111/Spendaway) and follow the installation steps in that repository.
-3. Once all the steps above as well as on the front-end have been completed, now run 
+3. Once all the steps above as well as on the front-end have been completed, now run
+
 ```bash
 npm run dev
 ```
+
 for the back-end, and
+
 ```bash
 npm start
 ```
+
 for the front end and the app should be available on your browser.
 
 ## App Demo
@@ -94,7 +101,9 @@ for the front end and the app should be available on your browser.
 
 #### Back-End
 
-- Node.js - handled the runtime environment for all API calls comming in from the front end.
+- Node.js - handled the runtime environment for Express.
+
+- Express.js - was used to handle all API calls comming in from the front end. Creating routes and controllers to help with separation of concerns.
 
 - JWT - was implemented for user authorization.
 
