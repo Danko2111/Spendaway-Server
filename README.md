@@ -65,7 +65,7 @@ This will create all the needed tables within the DB and seed the default data i
 
 ## Run Locally
 1. Once you have cloned this repository make sure to run `npm i` to install any dependancies you might be missing.
-2. Make sure you download [Spendaway Front-end](https://github.com/Danko2111/Spendaway) and do the same.
+2. Make sure you download [Spendaway Front-end](https://github.com/Danko2111/Spendaway) and follow the installation steps in that repository.
 3. Once all the steps above as well as on the front-end have been completed, now run 
 ```bash
 npm run dev
