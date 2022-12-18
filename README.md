@@ -16,12 +16,17 @@ Here is the React front end for this project
 
 To run this project, you will need to add the following environment variables to your .env file
 
-### API
+
+### DB and JWT Secret
 
 `PORT={Port}`
+
 `DB_LOCAL_DBNAME={db name}`
+
 `DB_LOCAL_USER={username}`
+
 `DB_LOCAL_PASSWORD={password}`
+
 `SECRET={Your secret}`
 
 ## DB Setup
