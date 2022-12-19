@@ -25,7 +25,7 @@ To run this project, you will need to add the following environment variables to
 
 `DB_LOCAL_PASSWORD={password}`
 
-`SECRET={Your secret}`
+`SECRET=05e6bc5ac834872276ac8bee9f4b29b800d54c78ccd3287b7e81b194e06f6a7c`
 
 ## DB Setup
 
