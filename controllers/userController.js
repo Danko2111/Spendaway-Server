@@ -31,7 +31,6 @@ exports.updateBalance = (req, res) => {
 
 exports.updateUser = (req, res) => {
   const { username, pass } = req.body;
-  console.log(username, pass);
   if (username) {
     knex("user")
       .where("username", username)
