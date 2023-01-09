@@ -12,5 +12,8 @@ exports.seed = (knex) => {
     })
     .then(() => {
       return knex("transaction").insert(transactionData);
+    })
+    .then(() => {
+      return knex("budget").del();
     });
 };
