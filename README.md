@@ -99,9 +99,9 @@ for the front end and the app should be available on your browser.
 
 #### Front-End
 
-- React - was used as the front end framework. This would create a perfect base for this app
+- React - was used as the front end framework.
 
-- React Charts - was used to create the beautiful yet dynamic charts used throughout the project.
+- React Charts - was used to create dynamic charts used throughout the project.
 
 - Axios - was used for making async API calls to the custom Node.js Backend.
 
@@ -117,7 +117,7 @@ for the front end and the app should be available on your browser.
 
 - Bcrypt - was used to encrypt and decrypt user passwords to strengthen user-info security. All user data was stored in the DB
 
-- Knex - was used to query the MySQL DB from the backend. Allowing for custom API calls to be handled with ease.
+- Knex - was used to query the MySQL DB from the backend. Allowing for custom API calls to be handled.
 
 #### Database
 
